@@ -9,7 +9,7 @@ The known_hosts file is located inside the container at `/config/rffmpeg/.ssh/kn
 
 ## Setup
 
-Workers must have access to Jellyfin's `/config` and `/transcodes` directories. It's recommended to setup NFS share for this.
+Workers must have access to Jellyfin's `/config` and `/transcodes` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
 
 ### Adding new workers
 
