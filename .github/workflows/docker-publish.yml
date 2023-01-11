@@ -88,3 +88,5 @@ jobs:
           platforms: |-
             linux/amd64
             linux/arm64
+      - name: Latest tag
+        uses: EndBug/latest-tag@v1.5.1
