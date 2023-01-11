@@ -18,7 +18,7 @@ services:
       - TZ=Europe/Berlin
       - NFS_EXPORT_0="/config *(rw,sync,no_subtree_check,no_root_squash)"
     ports:
-      - ${NFS_LAN_IP:-}:2049:2049
+      - ${JELLYFIN_LAN_ONLY_IP:-}:2049:2049
     volumes:
       - jellyfin-conf:/config:z
     restart: always
