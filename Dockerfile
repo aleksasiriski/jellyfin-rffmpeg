@@ -31,6 +31,8 @@ RUN apt purge wget -y && \
     apt autoremove --purge -y && \
     apt clean
 
+VOLUME /config
+
 ENTRYPOINT ["./jellyfin/jellyfin", \
     "--datadir", "/config", \
     "--cachedir", "/config/cache", \
