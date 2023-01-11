@@ -8,6 +8,7 @@ services:
       - ${JELLYFIN_LAN_ONLY_IP:-}:8096:8096 # public should access via reverse proxy
     volumes:
       - jellyfin-conf:/config:z
+      - jellyfin-transcodes:/transcodes:z
       - /media:/media # optional media folder
     restart: always
   nfs-server:
@@ -16,11 +17,14 @@ services:
       - SYS_ADMIN
     environment:
       - TZ=Europe/Berlin
-      - NFS_EXPORT_0="/config *(rw,sync,no_subtree_check,no_root_squash)"
+      - NFS_EXPORT_0="/config     *(rw,sync,no_subtree_check,no_root_squash)"
+      - NFS_EXPORT_0="/transcodes *(rw,sync,no_subtree_check,no_root_squash)"
     ports:
       - ${JELLYFIN_LAN_ONLY_IP:-}:2049:2049
     volumes:
       - jellyfin-conf:/config:z
+      - jellyfin-transcodes:/transcodes:z
     restart: always
 volumes:
   jellyfin-conf:
+  jellyfin-transcodes:
