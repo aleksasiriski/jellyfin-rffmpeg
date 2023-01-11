@@ -2,23 +2,25 @@
 
 Official jellyfin docker image with [rffmpeg](https://github.com/joshuaboniface/rffmpeg) included.
 
+** Note: this [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L36) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows for easier NFS setup as well as Kubernetes deployment. **
+
 The public ssh key is located inside the container at `/config/rffmpeg/.ssh/id_rsa.pub`
 The known_hosts file is located inside the container at `/config/rffmpeg/.ssh/known_hosts`
 
 ## Setup
 
-Workers must have access to Jellyfin's `/config`, `/cache` and `/transcodes` directories. It's recommended to setup NFS share for this.
+Workers must have access to Jellyfin's `/config`, `/config/cache` and `/transcodes` directories. It's recommended to setup NFS share for this.
 
 ### Adding new workers
 
 Copy the public ssh key to the worker:
 ```bash
-docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub <user>@<host>
+docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub <probably_root>@<worker_ip_address>
 ```
 
 Add the worker to rffmpeg:
 ```bash
-docker compose exec -it jellyfin rffmpeg add [--weight 1] [--name myfirsthost] <ip address of the host>
+docker compose exec -it jellyfin rffmpeg add [--weight 1] [--name first_worker] <jellyfin_host_ip_address>
 ```
 
 Check the status of rffmpeg:
