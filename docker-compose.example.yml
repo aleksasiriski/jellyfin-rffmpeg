@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  jellyfin:
+    image: ghcr.io/aleksasiriski/jellyfin-rffmpeg:latest
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - ${JELLYFIN_LAN_ONLY_IP:-}:8096:8096 # public should access via reverse proxy
+    volumes:
+      - jellyfin-conf:/config:z
+      - /media:/media # optional media folder
+    restart: always
+  nfs-server:
+    image: ghcr.io/obeone/nfs-server:latest
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      - TZ=Europe/Berlin
+      - NFS_EXPORT_0="/config *(rw,sync,no_subtree_check,no_root_squash)"
+    ports:
+      - ${NFS_LAN_IP:-}:2049:2049
+    volumes:
+      - jellyfin-conf:/config:z
+    restart: always
+volumes:
+  jellyfin-conf:
