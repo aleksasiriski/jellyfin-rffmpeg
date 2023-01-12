@@ -20,7 +20,7 @@ docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub 
 
 Add the worker to rffmpeg:
 ```bash
-docker compose exec -it jellyfin rffmpeg add [--weight 1] [--name first_worker] <jellyfin_host_ip_address>
+docker compose exec -it jellyfin rffmpeg add [--weight 1] [--name first_worker] <worker_ip_address>
 ```
 
 Check the status of rffmpeg:
