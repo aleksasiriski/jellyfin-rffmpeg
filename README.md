@@ -2,7 +2,7 @@
 
 ## Unofficial docker image made by including [rffmpeg](https://github.com/joshuaboniface/rffmpeg) in the official Jellyfin docker image.
 
-**Note: this [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L36) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows for easier NFS setup as well as Kubernetes deployment.**
+**Note: this [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L36) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows to use a single volume for stateful data, which can save costs when using Kubernetes in the cloud.**
 
 The public ssh key is located inside the container at `/config/rffmpeg/.ssh/id_rsa.pub`
 The known_hosts file is located inside the container at `/config/rffmpeg/.ssh/known_hosts`
