@@ -1,6 +1,6 @@
 # jellyfin-rffmpeg
 
-## Unofficial docker image made by including [rffmpeg](https://github.com/joshuaboniface/rffmpeg) in the official jellyfin docker image.
+## Unofficial docker image made by including [rffmpeg](https://github.com/joshuaboniface/rffmpeg) in the official Jellyfin docker image.
 
 **Note: this [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L36) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows for easier NFS setup as well as Kubernetes deployment.**
 
