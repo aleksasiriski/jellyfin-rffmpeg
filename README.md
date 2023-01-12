@@ -36,3 +36,7 @@ Enable it normally in the Jellyfin admin panel.
 If you want to use Hardware Acceleration all of the workers **must** support the same tech (VAAPI, NVENC, etc.).
 
 **Note**: If the Jellyfin host doesn't support that same Hardware Accel tech then it **can't** be used as a failover, but if you have available workers it will still transcode without problems.
+
+### Kubernetes
+
+Check [this](https://github.com/aleksasiriski/rffmpeg-worker) out!
