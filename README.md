@@ -1,4 +1,4 @@
-# jellyfin-rffmpeg-server
+# jellyfin-rffmpeg
 
 ## Official jellyfin docker image with [rffmpeg](https://github.com/joshuaboniface/rffmpeg) included.
 
