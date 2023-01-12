@@ -21,9 +21,9 @@ RUN sed -i 's;#logfile: "/var/log/jellyfin/rffmpeg.log";logfile: "/config/log/rf
     sed -i 's;#    - "-i";    - "-i";' /etc/rffmpeg/rffmpeg.yml && \
     sed -i 's;#    - "/var/lib/jellyfin/id_rsa";    - "/config/rffmpeg/.ssh/id_rsa";' /etc/rffmpeg/rffmpeg.yml
 
-RUN /usr/local/bin/rffmpeg init -y && \
-    mkdir -p /config/rffmpeg/.ssh && \
+RUN mkdir -p /config/rffmpeg/.ssh && \
     chmod 700 /config/rffmpeg/.ssh && \
+    /usr/local/bin/rffmpeg init -y && \
     ssh-keygen -t rsa -f /config/rffmpeg/.ssh/id_rsa -q -N ""
 
 RUN apt purge wget -y && \
