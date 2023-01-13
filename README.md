@@ -13,10 +13,7 @@
 
 #### SQLite
 
-SQLite is provided with `rffmpeg` script, to use it simply run this command inside the container (with docker/podman/kubectl exec):
-```
-rffmpeg init -y
-```
+SQLite is provided with `rffmpeg` script and initiliazed in Dockerfile, you can start by adding workers.
 
 #### Postgresql
 
