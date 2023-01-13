@@ -27,7 +27,7 @@ If you want to use this container as a stateless app (currently not possible bec
 | RFFMPEG_POSTGRES_PORT | 5432                    | Postgresql database port |
 | RFFMPEG_POSTGRES_DB   | rffmpeg                 | Postgresql database name |
 | RFFMPEG_POSTGRES_USER | Must be explicitly set! | Postgresql database user |
-| RFFMPEG_POSTGRES_PASS | Must be explicitly set! | Postgresql database pass |
+| RFFMPEG_POSTGRES_PASS | "" (empty password)     | Postgresql database pass |
 
 After that create the database with the provided name and run this command inside the container (with docker/podman/kubectl exec):
 ```
