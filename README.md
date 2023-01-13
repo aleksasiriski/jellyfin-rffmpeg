@@ -9,6 +9,24 @@
 
 ## Setup
 
+### Database
+
+#### SQLite
+SQLite is provided with rffmpeg script, to use it simply run this command inside the container (with docker/podman/kubectl exec):
+```
+rffmpeg init -y
+```
+
+#### Postgresql
+If you want to use this container as a stateless app (useful for Kubernetes) set the required env vars for Postgresql:
+| Name			        | Description              |
+| :-------------------: | :----------------------: |
+| RFFMPEG_POSTGRES_HOST | Postgresql database host |
+| RFFMPEG_POSTGRES_PORT | Postgresql database port |
+| RFFMPEG_POSTGRES_DB   | Postgresql database name |
+| RFFMPEG_POSTGRES_USER | Postgresql database user |
+| RFFMPEG_POSTGRES_PASS | Postgresql database pass |
+
 [Workers](https://github.com/aleksasiriski/rffmpeg-worker) must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
 
 ### Adding new workers

@@ -4,6 +4,11 @@ services:
     image: ghcr.io/aleksasiriski/jellyfin-rffmpeg:latest
     environment:
       - TZ=Europe/Berlin
+      # - RFFMPEG_POSTGRES_HOST=localhost
+      # - RFFMPEG_POSTGRES_PORT=5432
+      # - RFFMPEG_POSTGRES_DB=rffmpeg
+      # - RFFMPEG_POSTGRES_USER=postgres
+      # - RFFMPEG_POSTGRES_PASS=supersecurepassword
     ports:
       - ${JELLYFIN_LAN_ONLY_IP:-}:8096:8096 # public should access via reverse proxy
     volumes:
