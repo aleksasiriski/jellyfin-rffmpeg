@@ -34,9 +34,11 @@ After that create the database with the provided name and run this command insid
 rffmpeg init -y
 ```
 
+### Workers
+
 [Workers](https://github.com/aleksasiriski/rffmpeg-worker) must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
 
-### Adding new workers
+#### Adding new workers
 
 Copy the public ssh key to the worker:
 ```bash
