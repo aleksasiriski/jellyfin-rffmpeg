@@ -25,8 +25,6 @@ RUN mkdir -p /config/rffmpeg/.ssh && \
     chmod 700 /config/rffmpeg/.ssh && \
     ssh-keygen -t rsa -f /config/rffmpeg/.ssh/id_rsa -q -N ""
 
-RUN /usr/local/bin/rffmpeg init -y
-
 RUN apt purge wget -y && \
     rm -rf /var/lib/apt/lists/* && \
     apt autoremove --purge -y && \
