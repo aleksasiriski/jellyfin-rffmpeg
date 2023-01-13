@@ -20,7 +20,7 @@ rffmpeg init -y
 
 #### Postgresql
 
-If you want to use this container as a stateless app (useful for Kubernetes) set the required env vars for Postgresql:
+If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required env vars for Postgresql:
 | Name			            | Default value	          | Description		           |
 | :-------------------: | :---------------------: | :----------------------- | 
 | RFFMPEG_POSTGRES_HOST | localhost               | Postgresql database host |
