@@ -1,0 +1,14 @@
+---
+rffmpeg:
+    logging:
+        logfile: "/config/log/rffmpeg.log"
+    directories:
+        state: "/config/rffmpeg"
+        persist: "/run"
+        owner: root
+        group: root
+    remote:
+        user: root
+        args: 
+            - "-i"
+            - "/config/rffmpeg/.ssh/id_rsa"
