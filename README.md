@@ -19,7 +19,7 @@ SQLite is provided with `rffmpeg` script and initiliazed in Dockerfile, you can 
 
 If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required env vars for Postgresql:
 | Name			            | Default value	          | Description		           |
-| :-------------------: | :---------------------: | :----------------------- | 
+| :-------------------- | :---------------------: | -----------------------: | 
 | RFFMPEG_POSTGRES_HOST | localhost               | Postgresql database host |
 | RFFMPEG_POSTGRES_PORT | 5432                    | Postgresql database port |
 | RFFMPEG_POSTGRES_DB   | rffmpeg                 | Postgresql database name |
@@ -33,7 +33,9 @@ rffmpeg init -y
 
 ### Workers
 
-[Workers](https://github.com/aleksasiriski/rffmpeg-worker) must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
+Workers must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
+
+For a worker docker image you can use [this](https://github.com/aleksasiriski/rffmpeg-worker).
 
 #### Adding new workers
 
