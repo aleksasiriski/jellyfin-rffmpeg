@@ -19,7 +19,7 @@ SQLite is provided with `rffmpeg` script and initiliazed in Dockerfile, you can 
 
 If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required env vars for Postgresql:
 | Name			            | Default value	          | Description		           |
-| :-------------------: | :---------------------: | :----------------------: | 
+| :-------------------- | :---------------------: | -----------------------: | 
 | RFFMPEG_POSTGRES_HOST | localhost               | Postgresql database host |
 | RFFMPEG_POSTGRES_PORT | 5432                    | Postgresql database port |
 | RFFMPEG_POSTGRES_DB   | rffmpeg                 | Postgresql database name |
