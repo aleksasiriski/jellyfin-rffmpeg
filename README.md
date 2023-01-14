@@ -33,7 +33,9 @@ rffmpeg init -y
 
 ### Workers
 
-[Workers](https://github.com/aleksasiriski/rffmpeg-worker) must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
+Workers must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
+
+For a worker docker image you can use [this](https://github.com/aleksasiriski/rffmpeg-worker).
 
 #### Adding new workers
 
