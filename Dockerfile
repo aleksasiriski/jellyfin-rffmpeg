@@ -1,4 +1,4 @@
-FROM docker.io/jellyfin/jellyfin:10.8.8
+FROM docker.io/jellyfin/jellyfin:10.8.9
 
 RUN apt update && \
     apt install --no-install-recommends --no-install-suggests -y openssh-client python3-click python3-yaml python3-psycopg2
