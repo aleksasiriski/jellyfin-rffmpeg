@@ -13,7 +13,7 @@ COPY rffmpeg.yml /etc/rffmpeg/rffmpeg.yml
 
 RUN mkdir -p /config/rffmpeg/.ssh && \
     chmod 700 /config/rffmpeg/.ssh && \
-    ssh-keygen -t rsa -f /config/rffmpeg/.ssh/id_rsa -q -N ""
+    ssh-keygen -t ed25519 -f /config/rffmpeg/.ssh/id_ed25519 -q -N ""
 
 RUN /usr/local/bin/rffmpeg init -y
 
