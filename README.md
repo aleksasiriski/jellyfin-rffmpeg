@@ -1,9 +1,9 @@
 # jellyfin-rffmpeg
 
-## Unofficial docker image made by including [rffmpeg](https://github.com/joshuaboniface/rffmpeg) in the official Jellyfin docker image.
+## Unofficial docker image made by including [rffmpeg-go](https://github.com/aleksasiriski/rffmpeg-go) in the official Jellyfin docker image.
 
 ### Note: 
-* This [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L38) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows to use a single volume for stateful data, which can save costs when using Kubernetes in the cloud.
+* This [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L27) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows to use a single volume for stateful data, which can save costs when using Kubernetes in the cloud.
 * The public ssh key is located inside the container at `/config/rffmpeg/.ssh/id_ed25519.pub`
 * The known_hosts file is located inside the container at `/config/rffmpeg/.ssh/known_hosts`
 
@@ -13,23 +13,20 @@
 
 #### SQLite
 
-SQLite is provided with `rffmpeg` script and initiliazed in Dockerfile, you can start by adding workers.
+SQLite is already provided and configured, you can start by adding workers.
 
 #### Postgresql
 
 If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required env vars for Postgresql:
-| Name			            | Default value	          | Description		           |
-| :-------------------- | :---------------------: | -----------------------: | 
-| RFFMPEG_POSTGRES_HOST | localhost               | Postgresql database host |
-| RFFMPEG_POSTGRES_PORT | 5432                    | Postgresql database port |
-| RFFMPEG_POSTGRES_DB   | rffmpeg                 | Postgresql database name |
-| RFFMPEG_POSTGRES_USER | Must be explicitly set! | Postgresql database user |
-| RFFMPEG_POSTGRES_PASS | "" (empty password)     | Postgresql database pass |
 
-After that create the database with the provided name and run this command inside the container (with docker/podman/kubectl exec):
-```
-rffmpeg init -y
-```
+| Name | Default value | Description |
+| :---- | :----: | ----: | 
+| DATABASE_TYPE | sqlite | Must be 'sqlite' or 'postgres` |
+| DATABASE_HOST | localhost | Postgres database host |
+| DATABASE_PORT | 5432 | Postgres database port |
+| DATABASE_NAME | rffmpeg | Postgres database name |
+| DATABASE_USERNAME | postgres | Postgres database username |
+| DATABASE_PASSWORD | "" | Postgres database password |
 
 ### Workers
 
@@ -41,7 +38,7 @@ For a worker docker image you can use [this](https://github.com/aleksasiriski/rf
 
 Copy the public ssh key to the worker:
 ```bash
-docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub <probably_root>@<worker_ip_address>
+docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub root@<worker_ip_address>
 ```
 
 Add the worker to rffmpeg:
