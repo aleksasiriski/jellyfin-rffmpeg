@@ -1,14 +1,21 @@
 ---
-rffmpeg:
-    logging:
-        logfile: "/config/log/rffmpeg.log"
-    directories:
-        state: "/config/rffmpeg"
-        persist: "/run"
-        owner: root
-        group: root
-    remote:
-        user: root
-        args: 
-            - "-i"
-            - "/config/rffmpeg/.ssh/id_rsa"
+program:
+    log: /config/log/rffmpeg.log
+directories:
+    state: /config/rffmpeg
+    persist: /run
+    owner: root
+    group: root
+remote:
+    user: root
+    args: 
+        - -i
+        - /config/rffmpeg/.ssh/id_ed25519
+database:
+    type: sqlite
+    path: /config/rffmpeg/db/rffmpeg.db
+    host: localhost
+    port: "5432"
+    name: rffmpeg
+    username: postgres
+    password: ""

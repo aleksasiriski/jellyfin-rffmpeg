@@ -1,9 +1,9 @@
 FROM docker.io/jellyfin/jellyfin:10.8.9
 
 RUN apt update && \
-    apt install --no-install-recommends --no-install-suggests -y openssh-client python3-click python3-yaml python3-psycopg2
+    apt install --no-install-recommends --no-install-suggests -y openssh-client
 
-COPY rffmpeg /usr/local/bin/rffmpeg
+COPY --from=ghcr.io/aleksasiriski/rffmpeg-go:main /app/rffmpeg-go/rffmpeg-go /usr/local/bin/rffmpeg
 
 RUN chmod +x /usr/local/bin/rffmpeg && \
     ln -s /usr/local/bin/rffmpeg /usr/local/bin/ffmpeg && \
@@ -14,8 +14,6 @@ COPY rffmpeg.yml /etc/rffmpeg/rffmpeg.yml
 RUN mkdir -p /config/rffmpeg/.ssh && \
     chmod 700 /config/rffmpeg/.ssh && \
     ssh-keygen -t ed25519 -f /config/rffmpeg/.ssh/id_ed25519 -q -N ""
-
-RUN /usr/local/bin/rffmpeg init -y
 
 RUN apt purge wget -y && \
     rm -rf /var/lib/apt/lists/* && \
