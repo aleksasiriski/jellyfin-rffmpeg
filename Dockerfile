@@ -9,7 +9,7 @@ RUN chmod +x /usr/local/bin/rffmpeg && \
     ln -s /usr/local/bin/rffmpeg /usr/local/bin/ffmpeg && \
     ln -s /usr/local/bin/rffmpeg /usr/local/bin/ffprobe
 
-COPY rffmpeg.yml /etc/rffmpeg/rffmpeg.yml
+COPY rffmpeg.yml /config/rffmpeg/rffmpeg.yml
 
 RUN mkdir -p /config/rffmpeg/.ssh && \
     chmod 700 /config/rffmpeg/.ssh && \
