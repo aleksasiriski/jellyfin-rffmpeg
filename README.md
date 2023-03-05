@@ -17,7 +17,7 @@ SQLite is already provided and configured, you can start by adding workers.
 
 #### Postgresql
 
-If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required env vars for Postgresql:
+If you want to use this container as a stateless app (currently not possible because Jellyfin itself isn't stateless) set the required fields in `/config/rffmpeg/rffmpeg.yaml` or equivalent env vars that take precedence for Postgresql:
 
 | Name | Default value | Description |
 | :---- | :----: | ----: | 
