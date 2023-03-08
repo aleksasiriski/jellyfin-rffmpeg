@@ -38,7 +38,7 @@ For a worker docker image you can use [this](https://github.com/aleksasiriski/rf
 
 Copy the public ssh key to the worker:
 ```bash
-docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_rsa.pub root@<worker_ip_address>
+docker compose exec -it jellyfin ssh-copy-id -i /config/rffmpeg/.ssh/id_ed25519.pub root@<worker_ip_address>
 ```
 
 Add the worker to rffmpeg:
