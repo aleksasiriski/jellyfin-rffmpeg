@@ -3,7 +3,7 @@ FROM docker.io/jellyfin/jellyfin:10.8.9
 RUN apt update && \
     apt install --no-install-recommends --no-install-suggests -y openssh-client
 
-COPY --from=ghcr.io/aleksasiriski/rffmpeg-go:v0.0.3 /app/rffmpeg-go/rffmpeg-go /usr/local/bin/rffmpeg
+COPY --from=ghcr.io/aleksasiriski/rffmpeg-go:v0.0.4 /app/rffmpeg-go/rffmpeg-go /usr/local/bin/rffmpeg
 
 RUN chmod +x /usr/local/bin/rffmpeg && \
     ln -s /usr/local/bin/rffmpeg /usr/local/bin/ffmpeg && \
