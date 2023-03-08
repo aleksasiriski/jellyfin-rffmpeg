@@ -1,6 +1,6 @@
 ---
 program:
-    log: /config/log/rffmpeg.log
+    log: /config/log
 directories:
     state: /config/rffmpeg
     persist: /run
