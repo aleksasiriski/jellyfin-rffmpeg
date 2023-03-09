@@ -2,7 +2,6 @@
 program:
     log: /config/log
 directories:
-    state: /config/rffmpeg
     persist: /run
     owner: root
     group: root
@@ -13,7 +12,7 @@ remote:
         - /config/rffmpeg/.ssh/id_ed25519
 database:
     type: sqlite
-    path: /config/rffmpeg/db/rffmpeg.db
+    path: /config/rffmpeg/db
     host: localhost
     port: "5432"
     name: rffmpeg
