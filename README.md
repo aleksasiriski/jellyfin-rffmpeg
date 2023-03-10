@@ -3,7 +3,7 @@
 ## Unofficial docker image made by including [rffmpeg-go](https://github.com/aleksasiriski/rffmpeg-go) in the official Jellyfin docker image.
 
 ### Note: 
-* This [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/Dockerfile#L27) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows to use a single volume for stateful data, which can save costs when using Kubernetes in the cloud.
+* This [image](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/main/Dockerfile#L27) uses `/config/cache` for cache dir by default, instead of the official `/cache`. This allows to use a single volume for stateful data, which can save costs when using Kubernetes in the cloud.
 * The public ssh key is located inside the container at `/config/rffmpeg/.ssh/id_ed25519.pub`
 * The known_hosts file is located inside the container at `/config/rffmpeg/.ssh/known_hosts`
 
@@ -30,7 +30,7 @@ If you want to use this container as a stateless app (currently not possible bec
 
 ### Workers
 
-Workers must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/master/docker-compose.example.yml) for this.
+Workers must have access to Jellyfin's `/config/transcodes` and `/config/data/subtitles` directories. It's recommended to setup [NFS share](https://github.com/aleksasiriski/jellyfin-rffmpeg/blob/main/docker-compose.example.yml) for this.
 
 For a worker docker image you can use [this](https://github.com/aleksasiriski/rffmpeg-worker).
 
